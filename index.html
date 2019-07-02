@@ -7,16 +7,39 @@
 <title>Document</title>
 <style>
 *{margin:0;padding:0;}html,body{width:100%;height:100%;overflow:hidden;}
-.fixed{position:fixed;left:0;top:0;right:0;bottom:0;z-index:10;width:100%;height:100%;}
+.fixed{position:fixed;left:0;top:0;right:0;bottom:0;z-index:10;width:100%;height:100%;display:flex;flex-direction:column;display:none;background:rgba(195,57,191,.8)}
+.fixed >div{flex:1}
+.fixed >div img{width:100%;height:100%;}
+.yuyue{position:fixed;right:0;top:0;}
 </style>
+<script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js"></script>
 </head>
 <body>
-<iframe src="https://baidu.com" style="width:100%;height:100%"></iframe>
+<iframe src="http://192536.com/index.html" style="width:100%;height:100%;overflow:hidden;"></iframe>
+<div class="yuyue"><img src="1.jpg" alt=""></div>
 <div class="fixed">
-  123
+  <img src="zhifu.png" alt="" style="width:100%;height:100%;">
 </div>
 <script>
-  alert()
+  $(function () {
+    var t
+    function time () {
+      clearInterval(t)
+      t = setInterval(function () {
+        $('.fixed').slideDown()
+      }, 15000)
+    }
+    time()
+    
+    $('.yuyue').click(function () {
+      time()
+      $('.fixed').slideDown()
+    })
+    $('.fixed').click(function () {
+      time()
+      $('.fixed').slideUp()
+    })
+  })
 </script>
 </body>
 </html>
